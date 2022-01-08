@@ -5,7 +5,7 @@
              version="2.2">
     <persistence-unit name="CinemaPU" transaction-type="JTA">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <jta-data-source>java:/postgres</jta-data-source>
+        <jta-data-source>java:/PostgresDS</jta-data-source>
 
     </persistence-unit>
 </persistence>
