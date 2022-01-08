@@ -3,7 +3,6 @@ package com.example.repositories;
 import com.example.entities.TicketEntity;
 
 import javax.ejb.Stateless;
-import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -33,17 +32,27 @@ public class TicketRepository {
     }
 
     public List<TicketEntity> getAll() {
-        Query query = cinemaPU.createNamedQuery("Ticket.getAll");
+        Query query = cinemaPU.createNamedQuery("Tickets.getAll");
         return ((Collection<TicketEntity>) query.getResultList()).stream().collect(Collectors.toList());
     }
 
-    public List<TicketEntity> getFreeTickets() {
-        Query query = cinemaPU.createNamedQuery("Ticket.getFreeTickets");
+    public List<TicketEntity> getAvailableTickets() {
+        Query query = cinemaPU.createNamedQuery("Tickets.getAvailableTickets");
         return ((Collection<TicketEntity>) query.getResultList()).stream().collect(Collectors.toList());
+    }
+
+    //might not work, must test
+    public TicketEntity findByID(Integer id) {
+        Query query = cinemaPU.createNamedQuery("Tickets.findByID");
+        //id is integer here, but method "setParameter" might take only Strings
+        query.setParameter("id", id);
+
+        Collection ticketResults = query.getResultList();
+        return (TicketEntity) ticketResults.iterator().next();
     }
 
     public ArrayList<TicketEntity> findByEmail(String email) {
-        Query query = cinemaPU.createNamedQuery("Ticket.findByEmail");
+        Query query = cinemaPU.createNamedQuery("Tickets.findByEmail");
         query.setParameter("email", email);
 
         ArrayList<TicketEntity> ticketsForCertainMail = new ArrayList<>();
@@ -56,14 +65,36 @@ public class TicketRepository {
         return ticketsForCertainMail;
     }
 
-    public void remove(String email){
-        Query query = cinemaPU.createNamedQuery("Ticket.findByEmail");
-        query.setParameter("email", email);
-        ArrayList<TicketEntity> ticketsForCertainMail = findByEmail(email);
-        cinemaPU.getTransaction().begin();
-        for (TicketEntity ticket : ticketsForCertainMail){
-            cinemaPU.remove(ticket);
+    public boolean remove(String email) {
+        try {
+            Query query = cinemaPU.createNamedQuery("Tickets.findByEmail");
+            query.setParameter("email", email);
+            ArrayList<TicketEntity> ticketsForCertainMail = findByEmail(email);
+            cinemaPU.getTransaction().begin();
+            for (TicketEntity ticket : ticketsForCertainMail) {
+                cinemaPU.remove(ticket);
+            }
+            cinemaPU.getTransaction().commit();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
-        cinemaPU.getTransaction().commit();
+    }
+
+    public boolean remove(Integer id) {
+        try {
+            Query query = cinemaPU.createNamedQuery("Tickets.findByID");
+            query.setParameter("id", id);
+
+            TicketEntity entryToBeRemoved = findByID(id);
+            cinemaPU.getTransaction().begin();
+            cinemaPU.remove(entryToBeRemoved);
+            cinemaPU.getTransaction().commit();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }
