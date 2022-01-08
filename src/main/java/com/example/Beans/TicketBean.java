@@ -1,8 +1,9 @@
 package com.example.Beans;
 
+import javax.faces.bean.ManagedBean;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
+@ManagedBean(name = "TicketBean")
 public class TicketBean {
     @NotNull
     private int id_ticket;

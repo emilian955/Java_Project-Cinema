@@ -2,11 +2,44 @@
 <!DOCTYPE html
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui" xml:lang="en" lang="en">
 <head>
     <title>Title</title>
 </head>
 <body>
+<!--<h:form>-->
+<!--    <h:outputText value="Username" />-->
+<!--    <h:inputText id="username" value="#{UserBean.user_name}"></h:inputText>-->
 
+<!--    <h:outputText value="Password" />-->
+<!--    <h:inputSecret id="password" value="#{UserBean.password}"></h:inputSecret>-->
+<!--    <br/>-->
+<!--    <h:commandButton outcome="Welcome.xhtml" action="#{database.verifyUser(userBean)}"-->
+<!--                     value="Login"></h:commandButton>-->
+<!--</h:form>-->
+<h:form>
+    <div class="card">
+        <div class="ui-fluid">
+            <div class="p-field">
+                <h3>Login with an admin account</h3>
+                <h:outputText value="Username" />
+                <h:inputText id="username" value="#{UserBean.user_name}" styleClass="myCustomStyle"></h:inputText>
+                <h:message for="username"></h:message>
+                <br></br><br></br>
+
+                <h:outputText value="Password" />
+                <h:inputSecret id="password" styleClass="myCustomStyle" value="#{UserBean.password}"></h:inputSecret>
+                <h:message for="password"></h:message>
+                <br></br><br></br>
+
+                <h:commandButton action="#{login.validateUsernamePassword}"
+                                 value="Login"></h:commandButton>
+            </div>
+        </div>
+    </div>
+</h:form>
 </body>
 </html>
