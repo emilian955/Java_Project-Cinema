@@ -11,4 +11,3 @@
 /dataSources.xml
 /jpa-buddy.xml
 /jpa-buddy-datasource.xml
-../src/main/resources/META-INF/persistence.xml
