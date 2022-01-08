@@ -6,9 +6,9 @@
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
-/*
+/artifacts
+/libraries
 /dataSources.xml
-/encodings.xml
-/jpa-buddy-datasource.xml
 /jpa-buddy.xml
-jarRepositories.xml
+/jpa-buddy-datasource.xml
+
