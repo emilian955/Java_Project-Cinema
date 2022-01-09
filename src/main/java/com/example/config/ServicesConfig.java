@@ -1,6 +1,9 @@
 package com.example.config;
 
 
+import com.example.services.adds.AddProjectionService;
+import com.example.services.adds.AddRoomService;
+import com.example.services.adds.AddTicketService;
 import com.example.services.views.ViewProjectionsService;
 import com.example.services.views.ViewRoomsService;
 import com.example.services.views.ViewTicketsService;
@@ -17,6 +20,9 @@ public class ServicesConfig extends Application {
         resources.add(ViewProjectionsService.class);
         resources.add(ViewTicketsService.class);
         resources.add(ViewRoomsService.class);
+        resources.add(AddProjectionService.class);
+        resources.add(AddRoomService.class);
+        resources.add(AddTicketService.class);
         resources.add(CORSFilter.class);
     }
 

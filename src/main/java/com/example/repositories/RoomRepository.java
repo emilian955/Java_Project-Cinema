@@ -19,7 +19,7 @@ public class RoomRepository {
     public RoomRepository() {
     }
 
-    public void save(RoomRepository room) {
+    public void save(RoomEntity room) {
         cinemaPU.getTransaction().begin();
         cinemaPU.persist(room);
         cinemaPU.getTransaction().commit();
