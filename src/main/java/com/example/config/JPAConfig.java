@@ -8,7 +8,7 @@ import javax.enterprise.inject.Produces;
 
 @ApplicationScoped
 public class JPAConfig {
-    private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("ExamManagerPU");
+    private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("CinemaPU");
 
     @Produces
     public EntityManager createEM(){
