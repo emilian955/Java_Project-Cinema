@@ -45,7 +45,7 @@ public class ViewProjectionsService {
     @GET
     @Path("/findByName/{movieName}")
     @Produces(MediaType.APPLICATION_JSON)
-    public ProjectionEntity findByMovie(@PathParam("movieName") String movieName){
+    public ProjectionEntity findByMovie(@PathParam("movieName") String movieName) {
         return projectionsRepo.findByName(movieName);
     }
 }

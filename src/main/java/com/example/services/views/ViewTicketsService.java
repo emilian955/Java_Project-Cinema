@@ -1,6 +1,5 @@
 package com.example.services.views;
 
-import com.example.entities.ProjectionEntity;
 import com.example.entities.TicketEntity;
 import com.example.repositories.TicketRepository;
 
@@ -43,7 +42,7 @@ public class ViewTicketsService {
     @GET
     @Path("/findByMovie/{movie}")
     @Produces(MediaType.APPLICATION_JSON)
-    public ArrayList<TicketEntity> findByMovie(@PathParam("movie") String movie){
+    public ArrayList<TicketEntity> findByMovie(@PathParam("movie") String movie) {
         return ticketsRepo.findByMovie(movie);
     }
 }

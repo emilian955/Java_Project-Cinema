@@ -1,7 +1,9 @@
 package com.example.config;
 
-import com.example.services.CORSFilter;
-import com.example.services.ViewProjectionsService;
+
+import com.example.services.views.ViewProjectionsService;
+import com.example.services.views.ViewRoomsService;
+import com.example.services.views.ViewTicketsService;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.ws.rs.ApplicationPath;
@@ -13,6 +15,8 @@ import java.util.Set;
 public class ServicesConfig extends Application {
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(ViewProjectionsService.class);
+        resources.add(ViewTicketsService.class);
+        resources.add(ViewRoomsService.class);
         resources.add(CORSFilter.class);
     }
 
