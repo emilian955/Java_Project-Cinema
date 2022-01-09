@@ -45,8 +45,6 @@ public class ProjectionRepository {
         Query query = cinemaPU.createNamedQuery("Projections.findByName");
         query.setParameter("name", name);
 
-        ArrayList<ProjectionEntity> moviesByName = new ArrayList<>();
-
         Collection projectionResults = query.getResultList();
         return (ProjectionEntity) projectionResults.iterator().next();
     }

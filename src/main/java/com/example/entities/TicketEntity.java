@@ -9,7 +9,7 @@ import javax.persistence.*;
                 query="SELECT t FROM TicketEntity t"),
         @NamedQuery(name="Tickets.findByID",
                 query="SELECT t FROM TicketEntity t WHERE t.id = :id"),
-        @NamedQuery(name="Tickets.findByName",
+        @NamedQuery(name="Tickets.findByEmail",
                 query="SELECT t FROM TicketEntity t WHERE t.email = :email"),
         @NamedQuery(name="Tickets.findByMovie",
                 query="SELECT t FROM TicketEntity t WHERE t.idProjection = :id")

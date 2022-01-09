@@ -1,5 +1,6 @@
 package com.example.repositories;
 
+import com.example.entities.ProjectionEntity;
 import com.example.entities.TicketEntity;
 
 import javax.ejb.Stateless;
@@ -58,6 +59,23 @@ public class TicketRepository {
             ticketsForCertainMail.add(ticketIterator.next());
         }
         return ticketsForCertainMail;
+    }
+
+    public ArrayList<TicketEntity> findByMovie(String movie){
+        Query query = cinemaPU.createNamedQuery("Projections.findByName");
+        query.setParameter("name", movie);
+        Collection projectionResults = query.getResultList();
+
+        query = cinemaPU.createNamedQuery("Tickets.findByMovie");
+        query.setParameter("id", (ProjectionEntity) projectionResults.iterator().next());
+
+        ArrayList<TicketEntity> ticketsForCertainMovie = new ArrayList<>();
+        Collection ticketResults = query.getResultList();
+        Iterator<TicketEntity> ticketIterator = ticketResults.iterator();
+        while (ticketIterator.hasNext()) {
+            ticketsForCertainMovie.add(ticketIterator.next());
+        }
+        return ticketsForCertainMovie;
     }
 
     public boolean remove(String email) {
