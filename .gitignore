@@ -1,3 +1,4 @@
 /src/main/resources/META-INF/
 /src/main/src/main/resources/META-INF/
 /.jpb/jpb-settings.xml
+/src/main/java/com/example/config/JPAConfig.java
