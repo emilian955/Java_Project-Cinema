@@ -7,6 +7,7 @@ import com.example.repositories.ProjectionRepository;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
@@ -70,7 +71,8 @@ public class AdminBean {
         allAdmins=adminRepository.getAll();
         for (AdminEntity i : allAdmins){
             if(Objects.equals(i.getAdminName(), user.getAdmin_name()) && Objects.equals(i.getPassword(), user.getPassword())){
-                System.out.println("The login was sucessfull");
+                System.out.println("The login was successful");
+                FacesContext.getCurrentInstance().getApplication().getNavigationHandler().handleNavigation(FacesContext.getCurrentInstance(), null,  "/After_login_page.xhtml");
                 return true;
             }
         }

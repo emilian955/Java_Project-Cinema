@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui" xml:lang="en" lang="en">
+<head>
+    <title>Title</title>
+    <link rel="stylesheet" href="styles.css"></link>
+</head>
+<body>
+<h:form>
+    <div class="card">
+        <div class="ui-fluid">
+            <h1 style="color: white;text-align: center; padding: 60px;text-align: center;background: #1abc9c;color: white;font-size: 40px;height: 40px; font-family: 'Courier New', monospace;">Add a room</h1>
+            <div class="p-field" style="margin: auto;
+  width: 20%;
+  padding: 10px;
+">
+
+                <h:outputText value="Number of Rows" style="font-size: 25px;color: white;text-align: center;"/>
+                <br></br>
+                <h:inputText id="no_of_rows" value="#{RoomBean.no_of_rows}" styleClass="myCustomStyle" style="border-radius: 12px; font-size: 20px; left: 50%;"></h:inputText>
+                <h:message for="no_of_rows"></h:message>
+                <br></br><br></br>
+
+                <h:outputText value="Number of Columns" style="font-size: 25px;color: white;text-align: center;"/>
+                <br></br>
+                <h:inputSecret id="no_of_columns" styleClass="myCustomStyle" value="#{RoomBean.no_of_columns}" style="border-radius: 12px;font-size: 20px;"></h:inputSecret>
+                <h:message for="no_of_columns"></h:message>
+                <br></br><br></br>
+
+
+                <h:commandButton action="#{RoomBean.add(RoomBean) }" value="Add this room" style="font-size: 25px;font-weight: bold;text-align: center;margin-left: 10px; background-color: slategrey; height: 40px;width:220px ;font-family: 'Courier New', monospace; border-radius: 12px;"></h:commandButton>
+            </div>
+        </div>
+    </div>
+</h:form>
+</body>
+</html>

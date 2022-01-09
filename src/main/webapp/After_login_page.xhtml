@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>After_login</title>
+    <link rel="stylesheet" href="styles.css"></link>
+</h:head>
+
+<h:body >
+
+    <h1 style="padding: 60px;text-align: center;background: #1abc9c;color: white;font-size: 70px; font-family: 'Courier New', monospace;">Admin page</h1>
+    <h:form>
+        <div id="buttons">
+            <h:commandButton styleClass="btn btn-warning"   value="Add a projection" action ="Add_a_projection" style="width: 25%;font-size: 20px;font-weight: bold; background-color: slategrey; height: 80px;font-family: 'Courier New', monospace; border-radius: 12px;position: absolute;bottom: 50px;left: 0%;"></h:commandButton>
+
+
+            <h:commandButton action ="View_projections" value="Remove a projection" style="width: 25%; background-color: slategrey;font-size: 20px; height: 80px;font-weight: bold; border-radius: 12px;font-family: 'Courier New', monospace; position: absolute;bottom: 50px;left:25%; "></h:commandButton>
+
+
+            <h:commandButton action ="Add_a_room" value="Add a room" style="width: 25%; background-color: slategrey;font-size: 20px;font-weight: bold; height: 80px;font-family: 'Courier New', monospace; border-radius: 12px;position: absolute;bottom: 50px;left: 50%;"></h:commandButton>
+
+            <h:commandButton action ="View_projections" value="Remove a room" style="width: 25%; background-color: slategrey;font-size: 20px; height: 80px;font-weight: bold; border-radius: 12px;font-family: 'Courier New', monospace; position: absolute;bottom: 50px;left:75%; "></h:commandButton>
+        </div>
+    </h:form>
+</h:body>
+</html>

@@ -1,5 +1,8 @@
 package com.example.Beans;
 
+import com.example.entities.RoomEntity;
+import com.example.repositories.RoomRepository;
+
 import javax.faces.bean.ManagedBean;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -43,5 +46,14 @@ public class RoomBean {
 
     public void setNo_of_columns(int no_of_columns) {
         this.no_of_columns = no_of_columns;
+    }
+
+    public void add(RoomBean room){
+        RoomEntity roomEntity=new RoomEntity();
+        roomEntity.setNoOfRows(room.getNo_of_rows());
+        roomEntity.setNoOfColumns(room.getNo_of_columns());
+        RoomRepository roomRepository=new RoomRepository();
+        roomRepository.save(roomEntity);
+        System.out.println("The room was added");
     }
 }
