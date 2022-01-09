@@ -6,6 +6,8 @@
     <persistence-unit name="CinemaPU" transaction-type="JTA">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <jta-data-source>java:/postgres</jta-data-source>
-
+        <class>com.example.entities.TicketEntity</class>
+        <class>com.example.entities.RoomEntity</class>
+        <class>com.example.entities.ProjectionEntity</class>
     </persistence-unit>
 </persistence>
