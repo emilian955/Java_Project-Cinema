@@ -7,10 +7,10 @@ import javax.validation.constraints.Size;
 @ManagedBean(name = "UserBean")
 public class UserBean {
     @NotNull
-    @Size(min=1, max=100)
+    @Size(min = 1, max = 100)
     private String user_name;
     @NotNull
-    @Size(min=1, max=100)
+    @Size(min = 1, max = 100)
     private String password;
 
     public UserBean() {

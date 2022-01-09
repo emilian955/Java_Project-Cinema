@@ -61,7 +61,7 @@ public class TicketRepository {
         return ticketsForCertainMail;
     }
 
-    public ArrayList<TicketEntity> findByMovie(String movie){
+    public ArrayList<TicketEntity> findByMovie(String movie) {
         Query query = cinemaPU.createNamedQuery("Projections.findByName");
         query.setParameter("name", movie);
         Collection projectionResults = query.getResultList();

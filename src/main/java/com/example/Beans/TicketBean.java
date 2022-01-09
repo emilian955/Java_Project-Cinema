@@ -3,6 +3,7 @@ package com.example.Beans;
 import javax.faces.bean.ManagedBean;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
 @ManagedBean(name = "TicketBean")
 public class TicketBean {
     @NotNull
@@ -14,10 +15,10 @@ public class TicketBean {
     @NotNull
     private int no_of_column;
     @NotNull
-    @Size(min=1, max=100)
+    @Size(min = 1, max = 100)
     private String name_buyer;
     @NotNull
-    @Size(min=1, max=100)
+    @Size(min = 1, max = 100)
     private String email;
 
     public int getId_ticket() {

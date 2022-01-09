@@ -17,13 +17,13 @@ public class ProjectionBean {
     @NotNull
     private RoomEntity id_room;
     @NotNull
-    @Size(min=1, max=255)
+    @Size(min = 1, max = 255)
     private String movie_title;
     @NotNull
-    @Size(min=1, max=10)
+    @Size(min = 1, max = 10)
     private String start_time;
     @NotNull
-    @Size(min=1,max=10)
+    @Size(min = 1, max = 10)
     private String duration;
     @NotNull
     private int available_places;
@@ -36,7 +36,7 @@ public class ProjectionBean {
 
     public List<ProjectionEntity> allProjections;
 
-    public List<ProjectionEntity> getAll(){
+    public List<ProjectionEntity> getAll() {
         System.out.println("getAll");
         return projectRepo.getAll();
     }
