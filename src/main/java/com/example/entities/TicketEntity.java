@@ -4,6 +4,17 @@ import javax.persistence.*;
 
 @Table(name = "tickets")
 @Entity
+@NamedQueries({
+        @NamedQuery(name="Tickets.getAll",
+                query="SELECT t FROM TicketEntity t"),
+        @NamedQuery(name="Tickets.findByID",
+                query="SELECT t FROM TicketEntity t WHERE t.id = :id"),
+        @NamedQuery(name="Tickets.findByName",
+                query="SELECT t FROM TicketEntity t WHERE t.email = :email"),
+        @NamedQuery(name="Tickets.findByMovie",
+                query="SELECT t FROM TicketEntity t WHERE t.idProjection = :id")
+
+})
 public class TicketEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
