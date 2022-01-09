@@ -20,6 +20,7 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <datasource-mapping>
+          <factory-entry name="CinemaPU" />
           <factory-entry name="Cinema_Application" />
           <factory-entry name="default" />
         </datasource-mapping>
