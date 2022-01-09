@@ -1,9 +1,7 @@
 package com.example.Beans;
 
 import com.example.entities.AdminEntity;
-import com.example.entities.ProjectionEntity;
 import com.example.repositories.AdminRepository;
-import com.example.repositories.ProjectionRepository;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -17,13 +15,13 @@ public class AdminBean {
     @NotNull
     private int id_admin;
     @NotNull
-    @Size(min=1, max=100)
+    @Size(min = 1, max = 100)
     private String admin_name;
     @NotNull
-    @Size(min=1, max=100)
+    @Size(min = 1, max = 100)
     private String password;
     @NotNull
-    @Size(min=1, max=100)
+    @Size(min = 1, max = 100)
     private String email;
     @EJB
     private AdminRepository adminRepository;
@@ -66,10 +64,10 @@ public class AdminBean {
     }
 
 
-    public boolean login(AdminBean user){
-        allAdmins=adminRepository.getAll();
-        for (AdminEntity i : allAdmins){
-            if(Objects.equals(i.getAdminName(), user.getAdmin_name()) && Objects.equals(i.getPassword(), user.getPassword())){
+    public boolean login(AdminBean user) {
+        allAdmins = adminRepository.getAll();
+        for (AdminEntity i : allAdmins) {
+            if (Objects.equals(i.getAdminName(), user.getAdmin_name()) && Objects.equals(i.getPassword(), user.getPassword())) {
                 System.out.println("The login was sucessfull");
                 return true;
             }

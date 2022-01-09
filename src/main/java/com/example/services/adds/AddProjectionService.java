@@ -1,7 +1,6 @@
 package com.example.services.adds;
 
 import com.example.entities.ProjectionEntity;
-import com.example.entities.RoomEntity;
 import com.example.repositories.ProjectionRepository;
 
 import javax.ejb.EJB;
@@ -26,7 +25,7 @@ public class AddProjectionService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response createProjectionAndResponse(ProjectionEntity projection) {
         projectionRepo.save(projection);
-        URI uri= UriBuilder.fromResource(this.getClass()).path("" + projection.getId()).build();
+        URI uri = UriBuilder.fromResource(this.getClass()).path("" + projection.getId()).build();
         return Response.created(uri).entity(projection).build();
     }
 }

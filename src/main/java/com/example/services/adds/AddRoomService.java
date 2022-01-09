@@ -1,6 +1,5 @@
 package com.example.services.adds;
 
-import com.example.entities.ProjectionEntity;
 import com.example.entities.RoomEntity;
 import com.example.repositories.RoomRepository;
 
@@ -26,7 +25,7 @@ public class AddRoomService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response createRoomAndResponse(RoomEntity room) {
         roomRepo.save(room);
-        URI uri= UriBuilder.fromResource(this.getClass()).path("" + room.getId()).build();
+        URI uri = UriBuilder.fromResource(this.getClass()).path("" + room.getId()).build();
         return Response.created(uri).entity(room).build();
     }
 }

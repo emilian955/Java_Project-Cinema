@@ -1,6 +1,5 @@
 package com.example.services.adds;
 
-import com.example.entities.ProjectionEntity;
 import com.example.entities.TicketEntity;
 import com.example.repositories.TicketRepository;
 
@@ -26,7 +25,7 @@ public class AddTicketService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response createTicketAndResponse(TicketEntity ticket) {
         ticketRepo.save(ticket);
-        URI uri= UriBuilder.fromResource(this.getClass()).path("" + ticket.getId()).build();
+        URI uri = UriBuilder.fromResource(this.getClass()).path("" + ticket.getId()).build();
         return Response.created(uri).entity(ticket).build();
     }
 }

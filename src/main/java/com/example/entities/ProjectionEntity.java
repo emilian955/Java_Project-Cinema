@@ -5,14 +5,14 @@ import javax.persistence.*;
 @Table(name = "projections")
 @Entity
 @NamedQueries({
-        @NamedQuery(name="Projections.getAll",
-                query="SELECT p FROM ProjectionEntity p"),
-        @NamedQuery(name="Projections.findByID",
-                query="SELECT p FROM ProjectionEntity p WHERE p.id = :id"),
-        @NamedQuery(name="Projections.findByName",
-                query="SELECT p FROM ProjectionEntity p WHERE p.movieTitle = :name"),
-        @NamedQuery(name="Projections.findByRoom",
-                query="SELECT p FROM ProjectionEntity p WHERE p.idRoom = :id")
+        @NamedQuery(name = "Projections.getAll",
+                query = "SELECT p FROM ProjectionEntity p"),
+        @NamedQuery(name = "Projections.findByID",
+                query = "SELECT p FROM ProjectionEntity p WHERE p.id = :id"),
+        @NamedQuery(name = "Projections.findByName",
+                query = "SELECT p FROM ProjectionEntity p WHERE p.movieTitle = :name"),
+        @NamedQuery(name = "Projections.findByRoom",
+                query = "SELECT p FROM ProjectionEntity p WHERE p.idRoom = :id")
 
 })
 public class ProjectionEntity {

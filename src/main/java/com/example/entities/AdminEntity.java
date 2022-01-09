@@ -5,10 +5,10 @@ import javax.persistence.*;
 @Table(name = "admins")
 @Entity
 @NamedQueries({
-        @NamedQuery(name="Admins.getAll",
-                query="SELECT a FROM AdminEntity a"),
-        @NamedQuery(name="Admins.findByID",
-                query="SELECT a FROM AdminEntity a WHERE a.id = :id")
+        @NamedQuery(name = "Admins.getAll",
+                query = "SELECT a FROM AdminEntity a"),
+        @NamedQuery(name = "Admins.findByID",
+                query = "SELECT a FROM AdminEntity a WHERE a.id = :id")
 })
 public class AdminEntity {
     @Id

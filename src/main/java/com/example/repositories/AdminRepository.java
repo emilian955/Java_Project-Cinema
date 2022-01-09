@@ -9,6 +9,7 @@ import javax.persistence.Query;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
+
 @Stateless
 public class AdminRepository {
 
