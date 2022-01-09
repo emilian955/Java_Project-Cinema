@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="styles.css"></link>
 </head>
 <body>
-<h1>Admin page</h1>
+<h1 style="color: white;text-align: center; padding: 60px;text-align: center;background: #1abc9c;color: white;font-size: 40px;height: 40px; font-family: 'Courier New', monospace;">Movies page</h1>
 
 
 <table id="customers">
@@ -22,20 +22,18 @@
         <th>Available Places    </th>
         <th>Poster    </th>
     </tr>
-    <c:forEach items="#{database.listOfDocuments}" var="dataItem">
+    <c:forEach items="#{ProjectionBean.getAll()}" var="dataItem">
         <tr>
-            <td>#{dataItem.author}</td>
-            <td>#{dataItem.yearOfPublication}</td>
-            <td>#{dataItem.title}</td>
+            <td>#{dataItem.movieTitle}</td>
+            <td>#{dataItem.startTime}</td>
+            <td>#{dataItem.duration}</td>
+            <td>#{dataItem.availablePlaces}</td>
+
+            <td> <img alt="Qries" src="#{dataItem.posterUrl}"
+                      width="150" height="250"></img></td>
         </tr>
     </c:forEach>
 </table>
 
-<h:form>
-    <h:commandButton  id="Show"
-                      value="Show each exam details"
-                      action="#{database.store_documents()}">
-    </h:commandButton>
-</h:form>
 </body>
 </html>

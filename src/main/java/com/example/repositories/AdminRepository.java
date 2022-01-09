@@ -2,13 +2,14 @@ package com.example.repositories;
 
 import com.example.entities.AdminEntity;
 
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
-
+@Stateless
 public class AdminRepository {
 
     @Inject

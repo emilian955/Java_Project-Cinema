@@ -11,16 +11,6 @@
     <link rel="stylesheet" href="styles.css"></link>
 </head>
 <body>
-<!--<h:form>-->
-<!--    <h:outputText value="Username" />-->
-<!--    <h:inputText id="username" value="#{UserBean.user_name}"></h:inputText>-->
-
-<!--    <h:outputText value="Password" />-->
-<!--    <h:inputSecret id="password" value="#{UserBean.password}"></h:inputSecret>-->
-<!--    <br/>-->
-<!--    <h:commandButton outcome="Welcome.xhtml" action="#{database.verifyUser(userBean)}"-->
-<!--                     value="Login"></h:commandButton>-->
-<!--</h:form>-->
 <h:form>
     <div class="card">
         <div class="ui-fluid">
@@ -31,15 +21,15 @@
 ">
 
                 <h:outputText value="Username" style="font-size: 25px;color: white;text-align: center;"/>
-                <h:inputText id="username" value="#{UserBean.user_name}" styleClass="myCustomStyle" style="border-radius: 12px; font-size: 20px; left: 50%;"></h:inputText>
+                <h:inputText id="username" value="#{AdminBean.admin_name}" styleClass="myCustomStyle" style="border-radius: 12px; font-size: 20px; left: 50%;"></h:inputText>
                 <h:message for="username"></h:message>
                 <br></br><br></br>
                 <h:outputText value="Password" style="font-size: 25px;color: white;text-align: center;"/>
-                <h:inputSecret id="password" styleClass="myCustomStyle" value="#{UserBean.password}" style="border-radius: 12px;font-size: 20px;"></h:inputSecret>
+                <h:inputSecret id="password" styleClass="myCustomStyle" value="#{AdminBean.password}" style="border-radius: 12px;font-size: 20px;"></h:inputSecret>
                 <h:message for="password"></h:message>
                 <br></br><br></br>
 
-                <h:commandButton action="#{login.validateUsernamePassword}" value="Login" style="font-size: 25px;font-weight: bold;text-align: center;margin-left: 100px; background-color: slategrey; height: 40px;width:220px ;font-family: 'Courier New', monospace; border-radius: 12px;"></h:commandButton>
+                <h:commandButton action="#{AdminBean.login(AdminBean) }" value="Login" style="font-size: 25px;font-weight: bold;text-align: center;margin-left: 100px; background-color: slategrey; height: 40px;width:220px ;font-family: 'Courier New', monospace; border-radius: 12px;"></h:commandButton>
             </div>
         </div>
     </div>
