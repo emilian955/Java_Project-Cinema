@@ -1,8 +1,13 @@
 package com.example.Beans;
 
+import com.example.entities.ProjectionEntity;
+import com.example.repositories.ProjectionRepository;
+
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @ManagedBean(name = "ProjectionBean")
 public class ProjectionBean {
@@ -19,6 +24,24 @@ public class ProjectionBean {
     @NotNull
     @Size(min=1,max=10)
     private String duration;
+
+    @EJB
+    private ProjectionRepository projectRepo;
+
+    public List<ProjectionEntity> allProjections;
+
+    public List<ProjectionEntity> getAll(){
+        System.out.println("getAll");
+        return projectRepo.getAll();
+    }
+
+    public List<ProjectionEntity> getAllProjections() {
+        return allProjections;
+    }
+
+    public void setAllProjections(List<ProjectionEntity> allProjections) {
+        this.allProjections = allProjections;
+    }
 
     public ProjectionBean() {
     }
