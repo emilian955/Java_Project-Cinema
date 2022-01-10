@@ -30,7 +30,6 @@ public class ProjectionBean {
     @NotNull
     @Size(min=1,max=10)
     private String poster_url;
-
     @EJB
     private ProjectionRepository projectRepo;
 
@@ -116,7 +115,6 @@ public class ProjectionBean {
         projectionEntity.setDuration(projection.getDuration());
         projectionEntity.setAvailablePlaces(projection.getAvailable_places());
         projectionEntity.setPosterUrl(projection.getPoster_url());
-        ProjectionRepository projectionRepository = null;
-        projectionRepository.save(projectionEntity);
+        projectRepo.save(projectionEntity);
     }
 }

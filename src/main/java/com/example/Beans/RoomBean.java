@@ -3,6 +3,7 @@ package com.example.Beans;
 import com.example.entities.RoomEntity;
 import com.example.repositories.RoomRepository;
 
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -19,6 +20,8 @@ public class RoomBean {
     @Min(value = 5, message = "Columns should not be below 5")
     @Max(value = 10, message = "Columns should not be above 10")
     private int no_of_columns;
+    @EJB
+    private RoomRepository roomRepo;
 
     public RoomBean() {
     }
@@ -51,8 +54,7 @@ public class RoomBean {
         RoomEntity roomEntity=new RoomEntity();
         roomEntity.setNoOfRows(room.getNo_of_rows());
         roomEntity.setNoOfColumns(room.getNo_of_columns());
-        RoomRepository roomRepository=new RoomRepository();
-        roomRepository.save(roomEntity);
+        roomRepo.save(roomEntity);
         System.out.println("The room was added");
     }
 }
