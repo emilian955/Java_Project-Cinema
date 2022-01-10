@@ -14,6 +14,8 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 import java.net.URI;
 
+import static com.example.config.Logger.log;
+
 @Path("/projections")
 @ApplicationScoped
 public class AddProjectionService {
@@ -26,6 +28,7 @@ public class AddProjectionService {
     public Response createProjectionAndResponse(ProjectionEntity projection) {
         projectionRepo.save(projection);
         URI uri = UriBuilder.fromResource(this.getClass()).path("" + projection.getId()).build();
+        log("POST service called with path: http://localhost:8080/Cinema_Application-1.0-SNAPSHOT/resources/projections");
         return Response.created(uri).entity(projection).build();
     }
 }

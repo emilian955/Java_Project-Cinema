@@ -12,6 +12,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
+import static com.example.config.Logger.log;
+
 @Path("/rooms")
 @ApplicationScoped
 public class ViewRoomsService {
@@ -21,6 +23,7 @@ public class ViewRoomsService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<RoomEntity> getAllProjections() {
+        log("GET service called with path: http://localhost:8080/Cinema_Application-1.0-SNAPSHOT/resources/rooms");
         return roomRepo.getAll();
     }
 
@@ -28,6 +31,7 @@ public class ViewRoomsService {
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public RoomEntity findByID(@PathParam("id") Integer id) {
+        log("GET service called with path: http://localhost:8080/Cinema_Application-1.0-SNAPSHOT/resources/projections/" + id.toString());
         return roomRepo.findByID(id);
     }
 }

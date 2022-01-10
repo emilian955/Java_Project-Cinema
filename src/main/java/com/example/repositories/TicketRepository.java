@@ -4,6 +4,7 @@ import com.example.entities.ProjectionEntity;
 import com.example.entities.TicketEntity;
 
 import javax.ejb.Stateless;
+import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -19,8 +20,8 @@ public class TicketRepository {
     @Inject
     protected EntityManager cinemaPU;
 
-//    protected @Inject
-//    Event<TicketEntity> ticketEvent;
+    protected @Inject
+    Event<TicketEntity> ticketEvent;
 
     public TicketRepository() {
     }
@@ -28,7 +29,7 @@ public class TicketRepository {
     public void save(TicketEntity ticket) {
         cinemaPU.getTransaction().begin();
         cinemaPU.persist(ticket);
-//        ticketEvent.fire(ticket);
+        ticketEvent.fire(ticket);
         cinemaPU.getTransaction().commit();
     }
 

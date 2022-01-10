@@ -13,6 +13,8 @@ import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.config.Logger.log;
+
 @Path("/tickets")
 @ApplicationScoped
 public class ViewTicketsService {
@@ -22,6 +24,7 @@ public class ViewTicketsService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<TicketEntity> getAllProjections() {
+        log("GET service called with path: http://localhost:8080/Cinema_Application-1.0-SNAPSHOT/resources/tickets");
         return ticketsRepo.getAll();
     }
 
@@ -29,6 +32,7 @@ public class ViewTicketsService {
     @Path("/findById/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public TicketEntity findByID(@PathParam("id") Integer id) {
+        log("GET service called with path: http://localhost:8080/Cinema_Application-1.0-SNAPSHOT/resources/tickets/findById/" + id.toString());
         return ticketsRepo.findByID(id);
     }
 
@@ -36,6 +40,7 @@ public class ViewTicketsService {
     @Path("/findByEmail/{email}")
     @Produces(MediaType.APPLICATION_JSON)
     public ArrayList<TicketEntity> findByEmail(@PathParam("email") String email) {
+        log("GET service called with path: http://localhost:8080/Cinema_Application-1.0-SNAPSHOT/resources/tickets/findByEmail/" + email);
         return ticketsRepo.findByEmail(email);
     }
 
@@ -43,6 +48,7 @@ public class ViewTicketsService {
     @Path("/findByMovie/{movie}")
     @Produces(MediaType.APPLICATION_JSON)
     public ArrayList<TicketEntity> findByMovie(@PathParam("movie") String movie) {
+        log("GET service called with path: http://localhost:8080/Cinema_Application-1.0-SNAPSHOT/resources/tickets/findByMovie/" + movie);
         return ticketsRepo.findByMovie(movie);
     }
 }
