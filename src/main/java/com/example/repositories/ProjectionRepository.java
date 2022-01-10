@@ -25,6 +25,12 @@ public class ProjectionRepository {
         cinemaPU.getTransaction().commit();
     }
 
+    public void updateAvailableSeats(ProjectionEntity projection){
+        cinemaPU.getTransaction().begin();
+        projection.setAvailablePlaces(projection.getAvailablePlaces()-1);
+        cinemaPU.getTransaction().commit();
+    }
+
     public List<ProjectionEntity> getAll() {
         Query query = cinemaPU.createNamedQuery("Projections.getAll");
         return ((Collection<ProjectionEntity>) query.getResultList()).stream().collect(Collectors.toList());
