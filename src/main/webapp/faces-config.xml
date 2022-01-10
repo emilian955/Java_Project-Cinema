@@ -23,13 +23,4 @@
             <to-view-id>View_projections.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
-    <navigation-rule>
-        <from-view-id>Welcome_page.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>Reserve_ticket_page</from-outcome>
-            <to-view-id>Reserve_ticket_page.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-
-
 </faces-config>

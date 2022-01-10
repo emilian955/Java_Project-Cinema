@@ -1,8 +1,11 @@
 package com.example.Beans;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.io.IOException;
 
 @ManagedBean(name = "TicketBean")
 public class TicketBean {
@@ -67,5 +70,10 @@ public class TicketBean {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void redirect_to_page() throws  IOException {
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        ec.redirect(ec.getRequestContextPath() + "/Reserve_ticket_page.html");
     }
 }
