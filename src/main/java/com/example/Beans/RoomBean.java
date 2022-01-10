@@ -5,9 +5,13 @@ import com.example.repositories.RoomRepository;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
+
 
 @ManagedBean(name = "RoomBean")
 public class RoomBean {
@@ -48,6 +52,16 @@ public class RoomBean {
 
     public void setNo_of_columns(int no_of_columns) {
         this.no_of_columns = no_of_columns;
+    }
+    public List<Integer> return_ids(){
+        List<Integer> ids = new ArrayList<Integer>();
+        List<RoomEntity> roomEntities=roomRepo.getAll();
+        for(RoomEntity i:roomEntities){
+            System.out.println("Aici");
+            System.out.println(i.getId());
+                ids.add(i.getId());
+        }
+        return ids;
     }
 
     public void add(RoomBean room){

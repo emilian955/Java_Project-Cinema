@@ -3,6 +3,7 @@ package com.example.Beans;
 import com.example.entities.ProjectionEntity;
 import com.example.entities.RoomEntity;
 import com.example.repositories.ProjectionRepository;
+import com.example.repositories.RoomRepository;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -15,7 +16,7 @@ public class ProjectionBean {
     @NotNull
     public int id;
     @NotNull
-    private RoomEntity id_room;
+    private String id_room;
     @NotNull
     @Size(min = 1, max = 255)
     private String movie_title;
@@ -25,14 +26,14 @@ public class ProjectionBean {
     @NotNull
     @Size(min = 1, max = 10)
     private String duration;
-    @NotNull
     private int available_places;
     @NotNull
-    @Size(min=1,max=10)
+    @Size(min=1,max=255)
     private String poster_url;
     @EJB
     private ProjectionRepository projectRepo;
-
+    @EJB
+    private RoomRepository roomRepository;
     public List<ProjectionEntity> allProjections;
 
     public List<ProjectionEntity> getAll() {
@@ -59,11 +60,11 @@ public class ProjectionBean {
         this.id = id;
     }
 
-    public RoomEntity getId_room() {
+    public String getId_room() {
         return id_room;
     }
 
-    public void setId_room(RoomEntity id_room) {
+    public void setId_room(String id_room) {
         this.id_room = id_room;
     }
 
@@ -108,13 +109,16 @@ public class ProjectionBean {
     }
 
     public void add(ProjectionBean projection){
-        ProjectionEntity projectionEntity = null;
-        projectionEntity.setIdRoom(projection.getId_room());
+        ProjectionEntity projectionEntity = new ProjectionEntity();
+
+        projectionEntity.setIdRoom(roomRepository.findByID(Integer.parseInt(projection.getId_room())));
         projectionEntity.setMovieTitle(projection.getMovie_title());
         projectionEntity.setStartTime(projection.getStart_time());
         projectionEntity.setDuration(projection.getDuration());
-        projectionEntity.setAvailablePlaces(projection.getAvailable_places());
         projectionEntity.setPosterUrl(projection.getPoster_url());
+        RoomEntity newRoom;
+        newRoom=roomRepository.findByID(Integer.parseInt(projection.getId_room()));
+        projectionEntity.setAvailablePlaces(newRoom.getNoOfRows()*newRoom.getNoOfColumns());
         projectRepo.save(projectionEntity);
     }
 }

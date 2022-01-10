@@ -4,7 +4,8 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui" xml:lang="en" lang="en">
 <head>
     <title>Title</title>
@@ -22,36 +23,32 @@
 
                 <h:outputText value="Id Room" style="font-size: 25px;color: white;text-align: center;"/>
                 <br></br>
-                <h:inputText id="id_room" value="#{ProjectionBean.id_room}" styleClass="myCustomStyle" style="border-radius: 12px; font-size: 20px; left: 50%;"></h:inputText>
-                <h:message for="id_room"></h:message>
+                <h:selectOneMenu value="#{ProjectionBean.id_room}">
+                    <f:selectItems value="#{RoomBean.return_ids()}" />
+                </h:selectOneMenu>
                 <br></br><br></br>
 
                 <h:outputText value="Movie Title" style="font-size: 25px;color: white;text-align: center;"/>
                 <br></br>
-                <h:inputSecret id="movie_title" styleClass="myCustomStyle" value="#{ProjectionBean.movie_title}" style="border-radius: 12px;font-size: 20px;"></h:inputSecret>
+                <h:inputText id="movie_title" styleClass="myCustomStyle" value="#{ProjectionBean.movie_title}" style="border-radius: 12px;font-size: 20px;"></h:inputText>
                 <h:message for="movie_title"></h:message>
                 <br></br><br></br>
 
                 <h:outputText value="Start Time" style="font-size: 25px;color: white;text-align: center;"/>
                 <br></br>
-                <h:inputSecret id="start_time" styleClass="myCustomStyle" value="#{ProjectionBean.start_time}" style="border-radius: 12px;font-size: 20px;"></h:inputSecret>
+                <h:inputText id="start_time" styleClass="myCustomStyle" value="#{ProjectionBean.start_time}" style="border-radius: 12px;font-size: 20px;"></h:inputText>
                 <h:message for="start_time"></h:message>
                 <br></br><br></br>
 
                 <h:outputText value="Duration" style="font-size: 25px;color: white;text-align: center;"/>
                 <br></br>
-                <h:inputSecret id="duration" styleClass="myCustomStyle" value="#{ProjectionBean.duration}" style="border-radius: 12px;font-size: 20px;"></h:inputSecret>
+                <h:inputText id="duration" styleClass="myCustomStyle" value="#{ProjectionBean.duration}" style="border-radius: 12px;font-size: 20px;"></h:inputText>
                 <h:message for="duration"></h:message>
-                <br></br><br></br>
-
-                <h:outputText value="Available places" style="font-size: 25px;color: white;text-align: center;"/>
-                <h:inputSecret id="available_places" styleClass="myCustomStyle" value="#{ProjectionBean.available_places}" style="border-radius: 12px;font-size: 20px;"></h:inputSecret>
-                <h:message for="available_places"></h:message>
                 <br></br><br></br>
 
                 <h:outputText value="Poster URL" style="font-size: 25px;color: white;text-align: center;"/>
                 <br></br>
-                <h:inputSecret id="poster_url" styleClass="myCustomStyle" value="#{ProjectionBean.poster_url}" style="border-radius: 12px;font-size: 20px;"></h:inputSecret>
+                <h:inputText id="poster_url" styleClass="myCustomStyle" value="#{ProjectionBean.poster_url}" style="border-radius: 12px;font-size: 20px;"></h:inputText>
                 <h:message for="poster_url"></h:message>
                 <br></br><br></br>
 
